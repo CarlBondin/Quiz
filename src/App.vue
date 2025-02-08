@@ -1,22 +1,40 @@
 <template>
+  <QuizResults
+      v-if="showModal"
+      :score="score"
+      :totalQuestions="totalQuestions"
+      :betterThan="betterThan"
+      @close="showModal = false"
+  />
+
   <div class="parallax-container">
     <div class="parallax-bg"></div>
-    <QuizGame />
+    <QuizGame @submitQuiz="handleSubmitQuiz" />
   </div>
 </template>
 
 <script>
 import QuizGame from '@/components/views/QuizGame.vue';
+import QuizResults from '@/components/QuizResults.vue';
+
 export default {
-  components: { QuizGame }
+  components: { QuizGame, QuizResults },
+  data() {
+    return {
+      showModal: false,
+      score: null,
+      totalQuestions: null,
+      betterThan: null
+    };
+  },
+  methods: {
+    handleSubmitQuiz(result) {
+      this.score = result.score;
+      this.totalQuestions = result.totalQuestions;
+      this.betterThan = result.betterThan;
+      this.showModal = true;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
 };
 </script>
-
-<style lang="less">
-.parallax-container {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 1px;
-}
-</style>

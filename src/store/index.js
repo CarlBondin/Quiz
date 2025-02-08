@@ -86,6 +86,10 @@ export default createStore({
       state.score = state.questions.filter(q => q.selected === q.correct).length;
       state.previousScores.push(state.score);
       localStorage.setItem("scores", JSON.stringify(state.previousScores));
+    },
+    RESET_QUIZ(state) {
+      state.questions.forEach(q => q.selected = null);
+      state.score = null;
     }
   },
   getters: {
