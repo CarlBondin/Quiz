@@ -28,8 +28,8 @@ test.describe('Quiz submissions scores', () => {
     });
 
     test('Submission of a 8/10 score should show corresponding result and modal', async ({ page }) => {
-        await page.getByText('Germany').click();
-        await page.getByText('9').click();
+        await page.getByText('Germany').first().click();
+        await page.getByText('9', { exact: true }).click();
         await page.getByText('Soccer', { exact: true }).click();
         await page.getByText('USA', { exact: true }).click();
         await page.getByText('Novak Djokovic').click();
@@ -43,4 +43,24 @@ test.describe('Quiz submissions scores', () => {
         await expect(page.getByRole('heading', { name: 'Quiz Results' })).toBeVisible();
         await expect(page.getByText('You got 8 out of 10 correct!')).toBeVisible();
     });
+});
+
+test('When reviewing incorrect answers, the correct answer is marked as green and the incorrect answer is marked in red', async ({ page }) => {
+    await page.getByText('Germany').first().click();
+    await page.getByText('9', { exact: true }).click();
+    await page.getByText('Soccer', { exact: true }).click();
+    await page.getByText('USA', { exact: true }).click();
+    await page.getByText('Novak Djokovic').click();
+    await page.getByText('1', { exact: true }).click();
+    await page.getByText('New England Patriots').click();
+    await page.getByText('5', { exact: true }).click();
+    await page.getByText('Usain Bolt').click();
+    await page.getByText('The Stanley Cup').click();
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await page.getByRole('button', { name: 'Review Answers' }).click();
+
+    await expect(page.getByText('Germany').first()).toHaveCSS('background-color', 'rgb(255, 134, 128)');
+    await expect(page.getByText('9', { exact: true })).toHaveCSS('background-color', 'rgb(255, 134, 128)');
+    await expect(page.getByText('France')).toHaveCSS('background-color', 'rgb(200, 247, 197)');
+    await expect(page.getByText('11')).toHaveCSS('background-color', 'rgb(200, 247, 197)');
 });
