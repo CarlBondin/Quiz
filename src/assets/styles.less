@@ -20,9 +20,15 @@ body {
   background: linear-gradient(180deg, @secondary-color, @primary-color);
   font-size: 16px;
 
-  @media (max-width: @desktop) { font-size: 15px; }
-  @media (max-width: @tablet) { font-size: 14px; }
-  @media (max-width: @mobile) { font-size: 13px; }
+  @media (max-width: @desktop) {
+    font-size: 15px;
+  }
+  @media (max-width: @tablet) {
+    font-size: 14px;
+  }
+  @media (max-width: @mobile) {
+    font-size: 13px;
+  }
 }
 
 .title {
@@ -35,9 +41,18 @@ body {
   padding: 15px;
   border-radius: 10px;
 
-  @media (max-width: @desktop) { font-size: 2rem; padding: 12px; }
-  @media (max-width: @tablet) { font-size: 1.8rem; padding: 10px; }
-  @media (max-width: @mobile) { font-size: 1.6rem; padding: 8px; }
+  @media (max-width: @desktop) {
+    font-size: 2rem;
+    padding: 12px;
+  }
+  @media (max-width: @tablet) {
+    font-size: 1.8rem;
+    padding: 10px;
+  }
+  @media (max-width: @mobile) {
+    font-size: 1.6rem;
+    padding: 8px;
+  }
 }
 
 .parallax-container {
@@ -61,9 +76,21 @@ body {
   position: relative;
   z-index: 1;
 
-  @media (max-width: @desktop) { width: 85%; margin: 80px auto; padding: 25px; }
-  @media (max-width: @tablet) { width: 90%; margin: 60px auto; padding: 20px; }
-  @media (max-width: @mobile) { width: 92%; margin: 40px auto; padding: 15px; }
+  @media (max-width: @desktop) {
+    width: 85%;
+    margin: 80px auto;
+    padding: 25px;
+  }
+  @media (max-width: @tablet) {
+    width: 90%;
+    margin: 60px auto;
+    padding: 20px;
+  }
+  @media (max-width: @mobile) {
+    width: 92%;
+    margin: 40px auto;
+    padding: 15px;
+  }
 }
 
 .question-card {
@@ -80,8 +107,12 @@ body {
   color: @secondary-color;
   margin-bottom: 10px;
 
-  @media (max-width: @tablet) { font-size: 1rem; }
-  @media (max-width: @mobile) { font-size: 0.9rem; }
+  @media (max-width: @tablet) {
+    font-size: 1rem;
+  }
+  @media (max-width: @mobile) {
+    font-size: 0.9rem;
+  }
 }
 
 .options {
@@ -127,7 +158,9 @@ body {
     border: 2px solid @secondary-color;
   }
 
-  input { display: none; } // Hide radio button
+  input {
+    display: none;
+  } // Hide radio button
 
   &.selected {
     background: @primary-color !important;
@@ -135,15 +168,24 @@ body {
     border: 2px solid @secondary-color;
   }
 
-  &.correct-answer { background-color: @correct !important; border: 2px solid #27ae60 !important; }
-  &.incorrect-answer { background-color: @incorrect !important; border: 2px solid red !important; color: @white !important; }
+  &.correct-answer {
+    background-color: @correct !important;
+    border: 2px solid #27ae60 !important;
+  }
+  &.incorrect-answer {
+    background-color: @incorrect !important;
+    border: 2px solid red !important;
+    color: @white !important;
+  }
 }
 
 .submit-button {
   .button(@primary-color, @white, @primary-color);
   margin-top: 20px;
 
-  &:hover { background: @secondary-color; }
+  &:hover {
+    background: @secondary-color;
+  }
 }
 
 .modal-overlay {
@@ -175,16 +217,24 @@ body {
     color: @secondary-color;
     margin-bottom: 10px;
 
-    @media (max-width: @tablet) { font-size: 1.5rem; }
-    @media (max-width: @mobile) { font-size: 1.3rem; }
+    @media (max-width: @tablet) {
+      font-size: 1.5rem;
+    }
+    @media (max-width: @mobile) {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     font-size: 1.2rem;
     color: #555;
 
-    @media (max-width: @tablet) { font-size: 1rem; }
-    @media (max-width: @mobile) { font-size: 0.9rem; }
+    @media (max-width: @tablet) {
+      font-size: 1rem;
+    }
+    @media (max-width: @mobile) {
+      font-size: 0.9rem;
+    }
   }
 }
 

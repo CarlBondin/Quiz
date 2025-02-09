@@ -1,10 +1,10 @@
 <template>
   <QuizResults
-      v-if="showModal"
-      :score="score"
-      :totalQuestions="totalQuestions"
-      :betterThan="betterThan"
-      @close="showModal = false"
+    v-if="showModal"
+    :score="score"
+    :totalQuestions="totalQuestions"
+    :betterThan="betterThan"
+    @close="showModal = false"
   />
 
   <div class="parallax-container">
@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import QuizGame from '@/components/views/QuizGame.vue';
-import QuizResults from '@/components/views/QuizResults.vue';
+import QuizGame from "@/components/views/QuizGame.vue";
+import QuizResults from "@/components/views/QuizResults.vue";
 
 export default {
   components: { QuizGame, QuizResults },
@@ -23,7 +23,7 @@ export default {
       showModal: false,
       score: null,
       totalQuestions: null,
-      betterThan: null
+      betterThan: null,
     };
   },
   methods: {
@@ -33,7 +33,7 @@ export default {
       this.betterThan = result.betterThan;
       this.showModal = true;
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
+    },
+  },
 };
 </script>

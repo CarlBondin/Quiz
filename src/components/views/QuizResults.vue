@@ -1,9 +1,10 @@
 <template>
   <div class="modal-overlay" :class="{ 'perfect-score': isPerfectScore }">
-    <div class="modal-content" :class="{ 'glowing': isPerfectScore }">
+    <div class="modal-content" :class="{ glowing: isPerfectScore }">
       <h2>Quiz Results</h2>
       <p class="score-text">
-        You got <strong>{{ score }}</strong> out of <strong>{{ totalQuestions }}</strong> correct!
+        You got <strong>{{ score }}</strong> out of
+        <strong>{{ totalQuestions }}</strong> correct!
       </p>
       <p v-if="betterThan !== null" class="comparison-text">
         You did better than <strong>{{ betterThan }}%</strong> of users.
@@ -13,7 +14,11 @@
         <button @click="$emit('restart')" class="retake-button">Retake</button>
       </div>
     </div>
-    <canvas v-if="isPerfectScore" ref="confettiCanvas" class="confetti-canvas"></canvas>
+    <canvas
+      v-if="isPerfectScore"
+      ref="confettiCanvas"
+      class="confetti-canvas"
+    ></canvas>
   </div>
 </template>
 
@@ -22,12 +27,12 @@ export default {
   props: {
     score: Number,
     totalQuestions: Number,
-    betterThan: Number
+    betterThan: Number,
   },
   computed: {
     isPerfectScore() {
       return this.score === this.totalQuestions;
-    }
+    },
   },
   mounted() {
     if (this.isPerfectScore) {
@@ -51,7 +56,7 @@ export default {
           size: Math.random() * 8 + 2,
           speedX: Math.random() * 4 - 2,
           speedY: Math.random() * 4 + 2,
-          color: `hsl(${Math.random() * 360}, 100%, 70%)`
+          color: `hsl(${Math.random() * 360}, 100%, 70%)`,
         });
       }
 
@@ -67,7 +72,7 @@ export default {
         requestAnimationFrame(drawConfetti);
       }
       drawConfetti();
-    }
-  }
+    },
+  },
 };
 </script>
