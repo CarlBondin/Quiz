@@ -45,7 +45,7 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from "vuex";
-import QuizModal from "@/components/QuizResults.vue";
+import QuizModal from "@/components/views/QuizResults.vue";
 
 export default {
   components: { QuizModal },

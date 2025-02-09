@@ -14,7 +14,7 @@
 
 <script>
 import QuizGame from '@/components/views/QuizGame.vue';
-import QuizResults from '@/components/QuizResults.vue';
+import QuizResults from '@/components/views/QuizResults.vue';
 
 export default {
   components: { QuizGame, QuizResults },
