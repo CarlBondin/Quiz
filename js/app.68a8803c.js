@@ -1,14 +1,14 @@
 (function () {
   "use strict";
   var e = {
-      9531: function (e, t, o) {
+      9429: function (e, t, o) {
         var n = o(5130),
           s = o(7899),
           r = o(6768);
         const i = { class: "parallax-container" };
         function a(e, t, o, n, s, a) {
           const l = (0, r.g2)("QuizResults"),
-            c = (0, r.g2)("QuizGame");
+            u = (0, r.g2)("QuizGame");
           return (
             (0, r.uX)(),
             (0, r.CE)(
@@ -32,7 +32,14 @@
                     ))
                   : (0, r.Q3)("", !0),
                 (0, r.Lk)("div", i, [
-                  (0, r.bF)(c, { onSubmitQuiz: a.handleSubmitQuiz }, null, 8, [
+                  t[1] ||
+                    (t[1] = (0, r.Lk)(
+                      "div",
+                      { class: "parallax-bg" },
+                      null,
+                      -1,
+                    )),
+                  (0, r.bF)(u, { onSubmitQuiz: a.handleSubmitQuiz }, null, 8, [
                     "onSubmitQuiz",
                   ]),
                 ]),
@@ -42,11 +49,11 @@
           );
         }
         var l = o(4232);
-        const c = { class: "quiz-container" },
-          u = { class: "question-text" },
+        const u = { class: "quiz-container" },
+          c = { class: "question-text" },
           h = { class: "options" },
           d = ["name", "value", "onChange", "checked", "disabled"];
-        function f(e, t, o, n, s, i) {
+        function p(e, t, o, n, s, i) {
           const a = (0, r.g2)("QuizModal");
           return (
             (0, r.uX)(),
@@ -54,7 +61,7 @@
               r.FK,
               null,
               [
-                (0, r.Lk)("div", c, [
+                (0, r.Lk)("div", u, [
                   t[2] ||
                     (t[2] = (0, r.Lk)(
                       "h1",
@@ -76,7 +83,7 @@
                           [
                             (0, r.Lk)(
                               "p",
-                              u,
+                              c,
                               (0, l.v_)(t + 1) + ". " + (0, l.v_)(e.text),
                               1,
                             ),
@@ -193,145 +200,84 @@
             )
           );
         }
-        var p = o(782);
-        const m = { class: "score-text" },
-          v = { key: 0, class: "comparison-text" },
-          b = { class: "modal-buttons" },
-          w = { key: 0, ref: "confettiCanvas", class: "confetti-canvas" };
+        var v = o(782);
+        const b = { class: "modal-overlay" },
+          m = { class: "modal-content" },
+          f = { class: "score-text" },
+          w = { key: 0, class: "comparison-text" },
+          k = { class: "modal-buttons" };
         function C(e, t, o, n, s, i) {
           return (
             (0, r.uX)(),
-            (0, r.CE)(
-              "div",
-              {
-                class: (0, l.C4)([
-                  "modal-overlay",
-                  { "perfect-score": i.isPerfectScore },
+            (0, r.CE)("div", b, [
+              (0, r.Lk)("div", m, [
+                t[7] || (t[7] = (0, r.Lk)("h2", null, "Quiz Results", -1)),
+                (0, r.Lk)("p", f, [
+                  t[2] || (t[2] = (0, r.eW)(" You got ")),
+                  (0, r.Lk)("strong", null, (0, l.v_)(o.score), 1),
+                  t[3] || (t[3] = (0, r.eW)(" out of ")),
+                  (0, r.Lk)("strong", null, (0, l.v_)(o.totalQuestions), 1),
+                  t[4] || (t[4] = (0, r.eW)(" correct! ")),
                 ]),
-              },
-              [
-                (0, r.Lk)(
-                  "div",
-                  {
-                    class: (0, l.C4)([
-                      "modal-content",
-                      { glowing: i.isPerfectScore },
-                    ]),
-                  },
-                  [
-                    t[7] || (t[7] = (0, r.Lk)("h2", null, "Quiz Results", -1)),
-                    (0, r.Lk)("p", m, [
-                      t[2] || (t[2] = (0, r.eW)(" You got ")),
-                      (0, r.Lk)("strong", null, (0, l.v_)(o.score), 1),
-                      t[3] || (t[3] = (0, r.eW)(" out of ")),
-                      (0, r.Lk)("strong", null, (0, l.v_)(o.totalQuestions), 1),
-                      t[4] || (t[4] = (0, r.eW)(" correct! ")),
-                    ]),
-                    null !== o.betterThan
-                      ? ((0, r.uX)(),
-                        (0, r.CE)("p", v, [
-                          t[5] || (t[5] = (0, r.eW)(" You did better than ")),
-                          (0, r.Lk)(
-                            "strong",
-                            null,
-                            (0, l.v_)(o.betterThan) + "%",
-                            1,
-                          ),
-                          t[6] || (t[6] = (0, r.eW)(" of users. ")),
-                        ]))
-                      : (0, r.Q3)("", !0),
-                    (0, r.Lk)("div", b, [
+                null !== o.betterThan
+                  ? ((0, r.uX)(),
+                    (0, r.CE)("p", w, [
+                      t[5] || (t[5] = (0, r.eW)(" You did better than ")),
                       (0, r.Lk)(
-                        "button",
-                        {
-                          onClick: t[0] || (t[0] = (t) => e.$emit("close")),
-                          class: "review-button",
-                        },
-                        "Review",
+                        "strong",
+                        null,
+                        (0, l.v_)(o.betterThan) + "%",
+                        1,
                       ),
-                      (0, r.Lk)(
-                        "button",
-                        {
-                          onClick: t[1] || (t[1] = (t) => e.$emit("restart")),
-                          class: "retake-button",
-                        },
-                        "Retake",
-                      ),
-                    ]),
-                  ],
-                  2,
-                ),
-                i.isPerfectScore
-                  ? ((0, r.uX)(), (0, r.CE)("canvas", w, null, 512))
+                      t[6] || (t[6] = (0, r.eW)(" of users. ")),
+                    ]))
                   : (0, r.Q3)("", !0),
-              ],
-              2,
-            )
+                (0, r.Lk)("div", k, [
+                  (0, r.Lk)(
+                    "button",
+                    {
+                      onClick: t[0] || (t[0] = (t) => e.$emit("close")),
+                      class: "close-button",
+                    },
+                    "Review Answers",
+                  ),
+                  (0, r.Lk)(
+                    "button",
+                    {
+                      onClick: t[1] || (t[1] = (t) => e.$emit("restart")),
+                      class: "retake-button",
+                    },
+                    "Retake Quiz",
+                  ),
+                ]),
+              ]),
+            ])
           );
         }
-        o(4114);
         var S = {
             props: {
               score: Number,
               totalQuestions: Number,
               betterThan: Number,
             },
-            computed: {
-              isPerfectScore() {
-                return this.score === this.totalQuestions;
-              },
-            },
-            mounted() {
-              this.isPerfectScore && this.startConfetti();
-            },
-            methods: {
-              startConfetti() {
-                const e = this.$refs.confettiCanvas;
-                if (!e) return;
-                const t = e.getContext("2d");
-                (e.width = window.innerWidth), (e.height = window.innerHeight);
-                let o = [];
-                for (let s = 0; s < 150; s++)
-                  o.push({
-                    x: Math.random() * e.width,
-                    y: Math.random() * e.height,
-                    size: 8 * Math.random() + 2,
-                    speedX: 4 * Math.random() - 2,
-                    speedY: 4 * Math.random() + 2,
-                    color: `hsl(${360 * Math.random()}, 100%, 70%)`,
-                  });
-                function n() {
-                  t.clearRect(0, 0, e.width, e.height),
-                    o.forEach((o) => {
-                      (t.fillStyle = o.color),
-                        t.fillRect(o.x, o.y, o.size, o.size),
-                        (o.y += o.speedY),
-                        (o.x += o.speedX),
-                        o.y > e.height && (o.y = -10);
-                    }),
-                    requestAnimationFrame(n);
-                }
-                n();
-              },
-            },
           },
-          g = o(1241);
-        const k = (0, g.A)(S, [["render", C]]);
-        var y = k,
-          Q = {
-            components: { QuizModal: y },
+          Q = o(1241);
+        const g = (0, Q.A)(S, [["render", C]]);
+        var T = g,
+          y = {
+            components: { QuizModal: T },
             data() {
               return { showModal: !1, reviewMode: !1 };
             },
             computed: {
-              ...(0, p.aH)(["questions", "score"]),
-              ...(0, p.L8)(["totalQuestions", "betterThanPercentage"]),
+              ...(0, v.aH)(["questions", "score"]),
+              ...(0, v.L8)(["totalQuestions", "betterThanPercentage"]),
               betterThan() {
                 return this.betterThanPercentage;
               },
             },
             methods: {
-              ...(0, p.PY)(["SELECT_ANSWER", "CALCULATE_SCORE", "RESET_QUIZ"]),
+              ...(0, v.PY)(["SELECT_ANSWER", "CALCULATE_SCORE", "RESET_QUIZ"]),
               selectAnswer(e, t) {
                 this.reviewMode ||
                   this.SELECT_ANSWER({ questionId: e, answer: t });
@@ -349,10 +295,10 @@
               },
             },
           };
-        const E = (0, g.A)(Q, [["render", f]]);
-        var T = E,
-          M = {
-            components: { QuizGame: T, QuizResults: y },
+        const E = (0, Q.A)(y, [["render", p]]);
+        var L = E,
+          z = {
+            components: { QuizGame: L, QuizResults: T },
             data() {
               return {
                 showModal: !1,
@@ -371,14 +317,15 @@
               },
             },
           };
-        const L = (0, g.A)(M, [["render", a]]);
-        var z = L,
+        const M = (0, Q.A)(z, [["render", a]]);
+        var A = M,
           x =
-            (o(8992),
+            (o(4114),
+            o(8992),
             o(4520),
             o(2577),
             o(3949),
-            (0, p.y$)({
+            (0, v.y$)({
               state: {
                 questions: [
                   {
@@ -505,9 +452,9 @@
                 },
               },
             }));
-        const A = (0, n.Ef)(z),
-          R = (0, s.Zf)();
-        A.use(x), A.use(R), A.mount("#app");
+        const R = (0, n.Ef)(A),
+          W = (0, s.Zf)();
+        R.use(x), R.use(W), R.mount("#app");
       },
     },
     t = {};
@@ -523,8 +470,8 @@
       o.O = function (t, n, s, r) {
         if (!n) {
           var i = 1 / 0;
-          for (u = 0; u < e.length; u++) {
-            (n = e[u][0]), (s = e[u][1]), (r = e[u][2]);
+          for (c = 0; c < e.length; c++) {
+            (n = e[c][0]), (s = e[c][1]), (r = e[c][2]);
             for (var a = !0, l = 0; l < n.length; l++)
               (!1 & r || i >= r) &&
               Object.keys(o.O).every(function (e) {
@@ -533,16 +480,16 @@
                 ? n.splice(l--, 1)
                 : ((a = !1), r < i && (i = r));
             if (a) {
-              e.splice(u--, 1);
-              var c = s();
-              void 0 !== c && (t = c);
+              e.splice(c--, 1);
+              var u = s();
+              void 0 !== u && (t = u);
             }
           }
           return t;
         }
         r = r || 0;
-        for (var u = e.length; u > 0 && e[u - 1][2] > r; u--) e[u] = e[u - 1];
-        e[u] = [n, s, r];
+        for (var c = e.length; c > 0 && e[c - 1][2] > r; c--) e[c] = e[c - 1];
+        e[c] = [n, s, r];
       };
     })(),
     (function () {
@@ -592,25 +539,25 @@
             i = n[0],
             a = n[1],
             l = n[2],
-            c = 0;
+            u = 0;
           if (
             i.some(function (t) {
               return 0 !== e[t];
             })
           ) {
             for (s in a) o.o(a, s) && (o.m[s] = a[s]);
-            if (l) var u = l(o);
+            if (l) var c = l(o);
           }
-          for (t && t(n); c < i.length; c++)
-            (r = i[c]), o.o(e, r) && e[r] && e[r][0](), (e[r] = 0);
-          return o.O(u);
+          for (t && t(n); u < i.length; u++)
+            (r = i[u]), o.o(e, r) && e[r] && e[r][0](), (e[r] = 0);
+          return o.O(c);
         },
         n = (self["webpackChunkquiz"] = self["webpackChunkquiz"] || []);
       n.forEach(t.bind(null, 0)), (n.push = t.bind(null, n.push.bind(n)));
     })();
   var n = o.O(void 0, [504], function () {
-    return o(9531);
+    return o(9429);
   });
   n = o.O(n);
 })();
-//# sourceMappingURL=app.f9af09b5.js.map
+//# sourceMappingURL=app.68a8803c.js.map
