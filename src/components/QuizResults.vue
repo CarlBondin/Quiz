@@ -9,8 +9,8 @@
         You did better than <strong>{{ betterThan }}%</strong> of users.
       </p>
       <div class="modal-buttons">
-        <button @click="$emit('close')" class="close-button">Review Answers</button>
-        <button @click="$emit('restart')" class="retake-button">Retake Quiz</button>
+        <button @click="$emit('close')" class="review-button">Review</button>
+        <button @click="$emit('restart')" class="retake-button">Retake</button>
       </div>
     </div>
     <canvas v-if="isPerfectScore" ref="confettiCanvas" class="confetti-canvas"></canvas>
