@@ -8,7 +8,6 @@
   />
 
   <div class="parallax-container">
-    <div class="parallax-bg"></div>
     <QuizGame @submitQuiz="handleSubmitQuiz" />
   </div>
 </template>
