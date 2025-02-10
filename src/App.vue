@@ -41,4 +41,3 @@ export default {
 <style lang="less">
 @import "./assets/styles.less";
 </style>
-

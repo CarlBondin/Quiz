@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 
-const previousScores = typeof window !== "undefined"
+const previousScores =
+  typeof window !== "undefined"
     ? JSON.parse(localStorage.getItem("scores")) || []
     : [];
 

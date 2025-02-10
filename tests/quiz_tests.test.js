@@ -67,7 +67,7 @@ test("When reviewing incorrect answers, the correct answer is marked as green an
   await page.getByText("Usain Bolt").click();
   await page.getByText("The Stanley Cup").click();
   await page.getByRole("button", { name: "Submit" }).click();
-  await page.getByRole("button", { name: "Review Answers" }).click();
+  await page.getByRole("button", { name: "Review" }).click();
 
   await expect(page.getByText("Germany").first()).toHaveCSS(
     "background-color",

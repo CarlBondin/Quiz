@@ -7,27 +7,27 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const startServer = async () => {
-    const server = express();
+  const server = express();
 
-    // ⚡ Create Vite server in middleware mode
-    const vite = await createViteServer({
-        server: { middlewareMode: "ssr" },
-        root: __dirname,
-        appType: "custom",
-    });
+  // ⚡ Create Vite server in middleware mode
+  const vite = await createViteServer({
+    server: { middlewareMode: "ssr" },
+    root: __dirname,
+    appType: "custom",
+  });
 
-    // Use Vite's middleware to serve files
-    server.use(vite.middlewares);
+  // Use Vite's middleware to serve files
+  server.use(vite.middlewares);
 
-    server.get("/", async (req, res) => {
-        try {
-            // Dynamically import the app using Vite (this processes .vue files)
-            const { createApp } = await vite.ssrLoadModule("/src/app.js");
+  server.get("/", async (req, res) => {
+    try {
+      // Dynamically import the app using Vite (this processes .vue files)
+      const { createApp } = await vite.ssrLoadModule("/src/app.js");
 
-            const app = createApp();
-            const appContent = await renderToString(app);
+      const app = createApp();
+      const appContent = await renderToString(app);
 
-            res.send(`
+      res.send(`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -41,16 +41,16 @@ const startServer = async () => {
         </body>
         </html>
       `);
-        } catch (err) {
-            vite.ssrFixStacktrace(err);
-            console.error(err);
-            res.status(500).send("Internal Server Error");
-        }
-    });
+    } catch (err) {
+      vite.ssrFixStacktrace(err);
+      console.error(err);
+      res.status(500).send("Internal Server Error");
+    }
+  });
 
-    server.listen(3000, () => {
-        console.log("Server is running on http://localhost:3000");
-    });
+  server.listen(3000, () => {
+    console.log("Server is running on http://localhost:3000");
+  });
 };
 
 startServer();
