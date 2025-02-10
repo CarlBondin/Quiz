@@ -38,7 +38,7 @@
     </button>
   </div>
 
-  <QuizModal
+  <QuizResults
     v-if="showModal"
     :score="score"
     :totalQuestions="totalQuestions"
@@ -50,10 +50,10 @@
 
 <script>
 import { mapState, mapMutations, mapGetters } from "vuex";
-import QuizModal from "@/components/views/QuizResults.vue";
+import QuizResults from "./QuizResults.vue";
 
 export default {
-  components: { QuizModal },
+  components: { QuizResults },
   data() {
     return {
       showModal: false,

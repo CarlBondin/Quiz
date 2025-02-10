@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import QuizGame from "@/components/views/QuizGame.vue";
-import QuizResults from "@/components/views/QuizResults.vue";
+import QuizGame from "./components/views/QuizGame.vue";
+import QuizResults from "./components/views/QuizResults.vue";
 
 export default {
   components: { QuizGame, QuizResults },
@@ -37,3 +37,8 @@ export default {
   },
 };
 </script>
+
+<style lang="less">
+@import "./assets/styles.less";
+</style>
+

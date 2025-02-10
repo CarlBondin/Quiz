@@ -1,5 +1,9 @@
 import { createStore } from "vuex";
 
+const previousScores = typeof window !== "undefined"
+    ? JSON.parse(localStorage.getItem("scores")) || []
+    : [];
+
 export default createStore({
   state: {
     questions: [
@@ -90,7 +94,7 @@ export default createStore({
       },
     ],
     score: null,
-    previousScores: JSON.parse(localStorage.getItem("scores")) || [],
+    previousScores: previousScores,
   },
   mutations: {
     SELECT_ANSWER(state, { questionId, answer }) {
